@@ -65,10 +65,10 @@
             }
         }
 
-        function getDetails(item_id){
+        function getDetails(id){
             var xhr = new XMLHttpRequest();
             
-            xhr.open("GET", "detail.php?id=" + encodeURIComponent(item_id), True);
+            xhr.open("GET", "detail.php?id=" + encodeURIComponent(id), true);
 
             xhr.onreadystatechange = function(){
                 if (xhr.readyState === 4) {
@@ -93,14 +93,16 @@
 
             var detailsHTML = "<h2>Details</h2>";
 
-            detailsHTML += "<p> Name:" + details.item_name + "</p>";
-            detailsHTML += "<p>ID:" + details.item_id + "</p>";
-            detailsHTML += "<p>CategoryID:" + details.category_id + "</p>";
-            detailsHTML += "<p>CategoryName:" + details.category_name + "</p>";
-            detailsHTML += "<p>price:" + details.price + "</p>";
-            detailsHTML += "<p>purchaseDate:" + details.purchase_date + "</p>";
-            detailsHTML += "<p>Description:" + details.description + "</p>";
-            detailsHTML += "<p>Usage:" + details.use_description + "</p>";
+            details.forEach(function(detail){
+            detailsHTML += "<p> Name:" + detail.item_name + "</p>";
+            detailsHTML += "<p> ID:" + detail.item_id + "</p>";
+            detailsHTML += "<p> CategoryID:" + detail.category_id + "</p>";
+            detailsHTML += "<p> CategoryName:" + detail.category_name + "</p>";
+            detailsHTML += "<p> Price:" + detail.price + "</p>";
+            detailsHTML += "<p> PurchaseDate:" + detail.purchase_date + "</p>";
+            detailsHTML += "<p> Description:" + detail.description + "</p>";
+            detailsHTML += "<p> Usage:" + detail.use_description + "</p>";
+            });
 
             detailResultContainer.innerHTML = detailsHTML;
         }
