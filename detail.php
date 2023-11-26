@@ -33,15 +33,11 @@
            
            echo $json_data = json_encode($data, JSON_PRETTY_PRINT);
 
-        } else{
-            echo $json_data = json_encode(array('message' => 'Tiim Utga Alga'));
-        }
-        
-    }else{
-        echo $json_data = json_encode(array('message' => 'Haih Utgaa oruulj ogno uu!!'));
+        } 
+    
     }
 
     return $json_data;
-
+    
     $conn -> close();
 ?>
